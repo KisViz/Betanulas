@@ -823,12 +823,16 @@ ON table_name(column_list);
 ![alt text](media/image-47.png)
 ![alt text](media/image-48.png)
 
-
-
-
-
-
-
+### Rename index
+Using the system stored procedure sp_rename:
+- ```sql
+    EXEC sp_rename 
+        @objname = N'index_name', 
+        @newname = N'new_index_name',   
+        @objtype = N'INDEX';
+    ```
+Using the SQL Server Management Studio
+- ![alt text](media/image-49.png)
 
 
 
