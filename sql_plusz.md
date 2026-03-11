@@ -710,9 +710,11 @@ Using OBJECT_DEFINITION() function:
     ```
 
 ### Indexed VIEW
-Indexed views are materialized views that stores data physically like a table hence may provide some the performance benefit if they are used appropriately.
+Indexed views are materialized views that stores data physically like a table hence may provide some the performance benefit if they are used appropriately.<br>
 
-
+How to create an indexed view:
+1. Create a view that uses the WITH SCHEMABINDING option which binds the view to the schema of the underlying tables.
+2. create a unique clustered index on the view. This materializes the view.
 
 
 
