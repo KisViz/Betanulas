@@ -83,7 +83,7 @@
         select * from Production.Product
         where Color = 'Silver' and ListPrice > 200
         ```
-    - ![alt text](image-6.png)
+    - ![alt text](media/image-6.png)
     - (IS (NOT)) NULL
         - The results of the following comparisons are UNKNOWN:
             - NULL = 0
@@ -192,7 +192,7 @@
         ORDER BY
             Bonus desc;
         ```
-    - ![alt text](image-7.png)
+    - ![alt text](media/image-7.png)
     - ```sql
         use SampleDatabase
 
@@ -237,7 +237,7 @@
             - The OFFSET clause specifies the number of rows to skip before starting to return rows from the query. Greater or equal to zero.
             The FETCH clause specifies the number of rows to return after the OFFSET clause has been processed. Greater or equal to one.
             - The OFFSET clause is mandatory, while the FETCH clause is optional.
-            - ![alt text](image-9.png)
+            - ![alt text](media/image-9.png)
             - ```sql
                 use SampleDatabase
 
@@ -279,7 +279,7 @@
         ORDER BY
             Color;
         ```
-    - ![alt text](image-8.png)
+    - ![alt text](media/image-8.png)
     - ```sql
         SELECT
             customer_id,
@@ -356,7 +356,7 @@
 ## Lession 2
 - (inner) join = metszet
     - Inner join produces a data set that includes rows from the left table, and matching rows from the right table.
-    - ![alt text](image-17.png)
+    - ![alt text](media/image-17.png)
     - ```sql
       select FirstName + ' ' + LastName as Name, JobTitle, VacationHours, SickLeaveHours 
       from HumanResources.Employee as e inner join Person.Person p
@@ -373,7 +373,7 @@
             INNER JOIN hr.employees e 
                 ON e.fullname = c.fullname;
         ```
-    - ![alt text](image-10.png)
+    - ![alt text](media/image-10.png)
 
 - right (outer) join
     - The RIGHT JOIN clause starts selecting data from the right table and matching it with the rows from the left table. The RIGHT JOIN returns a result set that includes all rows in the right table, whether or not they have matching rows from the left table.
@@ -394,7 +394,7 @@
                 RIGHT JOIN hr.employees e 
                     ON e.fullname = c.fullname;
             ```
-        - ![alt text](image-13.png)
+        - ![alt text](media/image-13.png)
     - csak a jobb:
         - ```sql
             SELECT  
@@ -409,12 +409,12 @@
             WHERE
                 c.id IS NULL;
             ```
-        - ![alt text](image-14.png)
+        - ![alt text](media/image-14.png)
 
 - left (outer) join
     - The LEFT JOIN returns all rows from the left table and the matching rows from the right table. If no matching rows are found in the right table, NULL are used.
     - bal + metszet:
-        - ![alt text](image-18.png)
+        - ![alt text](media/image-18.png)
         - ```sql
             select FirstName + ' ' + LastName as Name, JobTitle, VacationHours, SickLeaveHours 
             from HumanResources.Employee as e left outer join Person.Person p
@@ -431,7 +431,7 @@
                 LEFT JOIN hr.employees e 
                     ON e.fullname = c.fullname;
             ```
-        - ![alt text](image-11.png)
+        - ![alt text](media/image-11.png)
     - csak a bal:
         - ```sql
             SELECT  
@@ -446,7 +446,7 @@
             WHERE 
                 e.id IS NULL;
             ```
-        - ![alt text](image-12.png)
+        - ![alt text](media/image-12.png)
 
 - full (outer) join
     - uió
@@ -466,7 +466,7 @@
                 FULL JOIN hr.employees e 
                     ON e.fullname = c.fullname;
             ``` 
-        - ![alt text](image-15.png)
+        - ![alt text](media/image-15.png)
     - unió kivéve a metszet
         - ```sql
             SELECT  
@@ -482,11 +482,11 @@
                 c.id IS NULL OR
                 e.id IS NULL;
             ```
-        -![alt text](image-16.png)
+        -![alt text](media/image-16.png)
 
 - cross join
     - A cross join allows you to combine rows from the first table with every row of the second table. In other words, it returns the Cartesian product of two tables.
-    - ![alt text](image-19.png)
+    - ![alt text](media/image-19.png)
     - ```sql
         SELECT
             select_list
@@ -834,7 +834,7 @@
         union all
         select Sales.Customer.CustomerID from Sales.Customer
         ```
-    - ![alt text](image-20.png)
+    - ![alt text](media/image-20.png)
 - EXCEPT
     - Returns distinct rows from the left input query that aren't output by the right input query.
     - ```sql 
@@ -1227,7 +1227,7 @@
     - MATCHED: these are the rows that match the merge condition. In the diagram, they are shown as blue. For the matching rows, you need to update the rows columns in the target table with values from the source table.
     - NOT MATCHED: these are the rows from the source table that does not have any matching rows in the target table. In the diagram, they are shown as orange. In this case, you need to add the rows from the source table to the target table. Note that NOT MATCHED is also known as NOT MATCHED BY TARGET.
     - NOT MATCHED BY SOURCE: these are the rows in the target table that does not match any rows in the source table. They are shown as green in the diagram. If you want to synchronize the target table with the data from the source table, then you will need to use this match condition to delete rows from the target table.
-- ![alt text](image-21.png)
+- ![alt text](media/image-21.png)
     - ```sql
         use AdventureWorks2025
 
@@ -1803,7 +1803,7 @@
     7. TOP  
     8. FOR XML
 - Graphical Execution Plan
-    - ![alt text](image-1.png)
+    - ![alt text](media/image-1.png)
 
 ## Lesson 2: Creating Indexes
 - An index is an on-disk structure associated with a table or view that speeds retrieval of rows from the table or view. An index contains keys built from one or more columns in the table or view. These keys are stored in a structure (B-tree) that enables SQL Server to find the row or rows associated with the key values quickly and efficiently.
@@ -1897,7 +1897,7 @@
         ON M1.MuseumID = 1 
     AND M2.MuseumID = 2;
     ```
--    ![alt text](image-2.png)
+-    ![alt text](media/image-2.png)
 
 ## Lesson 2: Implementiing Full-Text Search
 - Full-text search allows to bulid advaned queries that go beyond the capabilities of the traditional SELECT command with the LIKE  argument. By using the CONTAINS and FREETEXT predicates as well as the CINTANSTABLE and FREETEXTTABLE functions, you can write queries that retun the followin:
@@ -1914,7 +1914,7 @@
 
 ## Lession 2: IMplementing Scripts by Using windows PowerShell
 - Can automate the process of deplying applications, enumeration of database objects and the object properties.
-- ![alt text](image-3.png)
+- ![alt text](media/image-3.png)
 - Nagyon sok mindent meg lehet csinálni terminálból
 
 ## Lession 3: Tracking Data Changes
@@ -1928,11 +1928,11 @@
 - Change data capture (CDC)
     - Provides historical change information for a user table by capturing both the fact that DML changes were made and the actual data that was changed. Changes are captured by using an asynchronous process that reads the transaction log and has a low impact on the system.
     - As shown in the following illustration, the changes that were made to user tables are captured in corresponding change tables. These change tables provide a historical view of the changes over time. 
-    - ![alt text](image-4.png)
+    - ![alt text](media/image-4.png)
 - Change tracking
     - Change tracking captures the fact that rows in a table were changed, but doesn't capture the data that was changed. This enables applications to determine the rows that have changed with the latest row data being obtained directly from the user tables. Therefore, change tracking is more limited in the historical questions it can answer compared to change data capture. However, for those applications that don't require the historical information, there's far less storage overhead because of the changed data not being captured. A synchronous tracking mechanism is used to track the changes. This has been designed to have minimal overhead to the DML operations.
     - The following illustration shows a synchronization scenario that would benefit by using change tracking. In the scenario, an application requires the following information: all the rows in the table that were changed since the last time that the table was synchronized, and only the current row data. Because a synchronous mechanism is used to track the changes, an application can perform two-way synchronization and reliably detect any conflicts that might have occurred.
-    - ![alt text](image-5.png)
+    - ![alt text](media/image-5.png)
 
 # Hasznos oldalak
 - https://www.sqlservertutorial.net/

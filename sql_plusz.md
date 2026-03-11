@@ -10,7 +10,7 @@
     go
     select FirstName as 'like' from Person.Person where FirstName like 'G%'
     ```
-    - ![alt text](image-34.png)
+    - ![alt text](media/image-34.png)
 - ```sql
     use AdventureWorks2025
 
@@ -19,7 +19,7 @@
     select FirstName as 'like' from Person.Person where FirstName like 'Gabriel'
     ```
 - A LIKE lassabb
-- ![alt text](image-22.png)
+- ![alt text](media/image-22.png)
 - https://stackoverflow.com/questions/6142235/sql-like-vs-performance/28609481#28609481
 - ```sql
     -- Source - https://stackoverflow.com/a/6143002
@@ -60,7 +60,7 @@
 
     SELECT * FROM #TempTester WHERE value = 'abcdefghij'
     ```
-- ![alt text](image-25.png)
+- ![alt text](media/image-25.png)
 ## AND OR AND OR példa 
 - ```sql
     use SampleDatabase
@@ -68,7 +68,7 @@
     select * from sales.staffs
     where first_name = 'Kali' and first_name = 'Ventia' or first_name = 'Layla' and first_name = 'Genna' or first_name = 'Fabiola'
     ```
-- ![alt text](image-23.png)
+- ![alt text](media/image-23.png)
 
 ## NULL helyettesítése
 - ```sql
@@ -113,7 +113,7 @@
     ```
     - 3 különböző eredmény:(
     - miért?
-- ![alt text](image-24.png)
+- ![alt text](media/image-24.png)
 
 ## BETWEEN és logikai operátotok közül melyik gyorsabb + példa
 - ```sql
@@ -129,7 +129,7 @@
     from Sales.SalesOrderDetail
     where UnitPrice > 200 and UnitPrice < 2000
     ```
-- ![alt text](image-26.png)
+- ![alt text](media/image-26.png)
 
 ## 10k elemet taralmaz az in listában fölsorolva
 - ```sql
@@ -179,7 +179,7 @@
         - ```sql
             SELECT * FROM #TempTester ORDER BY id
             ```
-        - ![alt text](image-27.png)
+        - ![alt text](media/image-27.png)
             - 9M sorra
 - ORDER BY with OFFSET/FETCH requires deterministic ordering
     - If the ORDER BY expression is not unique, pagination may return inconsistent results between executions.
@@ -217,19 +217,19 @@ Legacy LOB types cannot be sorted directly. They must be cast to varchar(max) or
 ## COUNT(*) és COUNT(oszlop) (teljesítmény)
 |COUNT oszlop|COUNT *|
 |-|-|
-|![alt text](image-32.png)|![alt text](image-31.png)|
+|![alt text](media/image-32.png)|![alt text](media/image-31.png)|
 - hmmmm
 
 ## SELECT * és SELECT oszlopok teljesítmény
 |SELECT oszlopok|SELECT *|
 |-|-|
-|![alt text](image-28.png)|![alt text](image-29.png)|
+|![alt text](media/image-28.png)|![alt text](media/image-29.png)|
 - és tényleg van különbség
 
 ## JOIN-nal ON után és a WHERE-ben adunk feltételt mi lesz a teljesítményben a különbség
 |WHERE|SELECT *|
 |-|-|
-|![alt text](image-30.png)|![alt text](image-33.png)|
+|![alt text](media/image-30.png)|![alt text](media/image-33.png)|
 - WHERE valamennyivel olcsóbb
 
 ## JOIN-nal 4-5 tábla
@@ -273,7 +273,7 @@ Legacy LOB types cannot be sorted directly. They must be cast to varchar(max) or
     ```
 ## CAST mit csinál, ha nem sikerül (null-t int-re stb)
 - A null-t nem bántja, atöbbit a táblázat szerint
-- ![alt text](image-35.png)
+- ![alt text](media/image-35.png)
 - https://learn.microsoft.com/en-us/sql/t-sql/functions/cast-and-convert-transact-sql?view=sql-server-ver17
 - ha nem sikerül hibát dob
 - ```sql
@@ -305,10 +305,10 @@ Legacy LOB types cannot be sorted directly. They must be cast to varchar(max) or
     with rollup
     ```
     - Kiszámolja az átlag, min, max árakat az összes alkategóriára a kategóriákon belül
-    - ![alt text](image-36.png)
+    - ![alt text](media/image-36.png)
 
 ## except where feltetellel (melyik a jobb teljeitmenyben)
-- ![alt text](image-37.png)
+- ![alt text](media/image-37.png)
 
 ## APPLY és JOIN-ok közti külonbség (melyik a jobb)
 - Az appy akkor hasznos, ha van table-valued function, egyéként kicsi különbség van teljesítményben köztük
@@ -376,7 +376,7 @@ Legacy LOB types cannot be sorted directly. They must be cast to varchar(max) or
 
 ## datalenght a tenylegesen hasznaltat irja e ki
 - Igen
-- ![alt text](image-38.png)
+- ![alt text](media/image-38.png)
     - varchar(255) a típusa alapból
 
 ## Beszúrás allekérdezéssel kell-e VALUES 
@@ -501,7 +501,7 @@ Legacy LOB types cannot be sorted directly. They must be cast to varchar(max) or
         - **No other transactions can modify data that was read by the current transaction until the current transaction completes.**
         - **Other transactions can't insert new rows with key values that would fall in the range of keys read by any statements in the current transaction until the current transaction completes.**
     - **Range locks are placed in the range of key values that match the search conditions of each statement executed in a transaction**. This **blocks other transactions from updating or inserting any rows that would qualify for any of the statements executed by the current transaction**. The range locks are held until the transaction completes. This is the most restrictive of the isolation levels.
-- ![alt text](image-39.png)
+- ![alt text](media/image-39.png)
 - row → page → table → database
     1. Row Locks
         - Applied to individual rows.
@@ -571,18 +571,146 @@ FROM (
 ```
 ---
 By definition, views do not store data except for indexed views.
-Egy view több tábla összekapcsolásából is állhat vagy egy táblának pár sorából, el lehet rejteni a komplex lekérdezéseket.
+Egy view több tábla összekapcsolásából is állhat vagy egy táblának pár sorából, el lehet rejteni a komplex lekérdezéseket. <br>
+![alt text](media/image-40.png)
 
-![alt text](image-40.png)
+Előnyök:
+- Security: You can restrict users to access directly to a table and allow them to access a subset of data via views.
+- Simplicity: You can simplify the complex queries with joins and conditions using a set of views.
+- Consistency: Sometimes, you need to write a complex formula or logic in every query. Once views are defined, you can reference the logic from the views rather than rewriting it in separate queries.
 
+### CREATE VIEW
+```sql
+CREATE VIEW [OR ALTER] schema_name.view_name [(column_list)]
+AS
+    select_statement;
+```
+- If you don’t explicitly specify a list of columns for the view, SQL Server will use the column list derived from the SELECT statement.
+```sql
+CREATE VIEW sales.daily_sales
+AS
+SELECT
+    year(order_date) AS y,
+    month(order_date) AS m,
+    day(order_date) AS d,
+    p.product_id,
+    product_name,
+    quantity * i.list_price AS sales
+FROM
+    sales.orders AS o
+INNER JOIN sales.order_items AS i
+    ON o.order_id = i.order_id
+INNER JOIN production.products AS p
+    ON p.product_id = i.product_id;
 
+go
 
+SELECT 
+    * 
+FROM 
+    sales.daily_sales
+ORDER BY
+    y, m, d, product_name;
 
+go
 
+CREATE OR ALTER sales.daily_sales (
+    year,
+    month,
+    day,
+    customer_name,
+    product_id,
+    product_name
+    sales
+)
+AS
+SELECT
+    year(order_date),
+    month(order_date),
+    day(order_date),
+    concat(
+        first_name,
+        ' ',
+        last_name
+    ),
+    p.product_id,
+    product_name,
+    quantity * i.list_price
+FROM
+    sales.orders AS o
+    INNER JOIN
+        sales.order_items AS i
+    ON o.order_id = i.order_id
+    INNER JOIN
+        production.products AS p
+    ON p.product_id = i.product_id
+    INNER JOIN sales.customers AS c
+    ON c.customer_id = o.customer_id;
 
+```
+Lehet aggregate function-t is hasznáni (SUM, AVG, stb)
 
+### DROP VIEW
+```sql
+DROP VIEW [IF EXISTS] 
+    schema_name.view_name1, 
+    schema_name.view_name2,
+    ...;
+```
 
+### Rename VIEW
+![alt text](media/image-41.png) <br>
+Vagy használjuk a stored procedure-t.
+```sql
+EXEC sp_rename 
+    @objname = 'sales.product_catalog',
+    @newname = 'product_list';
+```
+   - @objname: name of the view which you want to rename
+   - @newname: new view name
 
+### List VIEW-s
+To list all views in a SQL Server Database, you query the sys.views or sys.objects catalog view.
+```sql
+SELECT 
+	OBJECT_SCHEMA_NAME(v.object_id) schema_name,
+	v.name
+FROM 
+	sys.views as v;
+```
+
+### Getting information about a VIEW
+Using the system catalog sys.sql_module and the OBJECT_ID() function:
+- ```sql
+    SELECT
+        definition,
+        uses_ansi_nulls,
+        uses_quoted_identifier,
+        is_schema_bound
+    FROM
+        sys.sql_modules
+    WHERE
+        object_id
+        = object_id(
+                'sales.daily_sales'
+            );
+    ```
+Using the sp_helptext stored procedure:
+- ```sql
+    EXEC sp_helptext 'sales.daily_sales' ;
+    ```
+Using OBJECT_DEFINITION() function:
+- ```sql
+    SELECT 
+        OBJECT_DEFINITION(
+            OBJECT_ID(
+                'sales.daily_sales'
+            )
+        ) view_info;
+    ```
+
+### Indexed VIEW
+Indexed views are materialized views that stores data physically like a table hence may provide some the performance benefit if they are used appropriately.
 
 
 
