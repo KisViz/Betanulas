@@ -928,12 +928,34 @@ DROP INDEX [IF EXISTS]
 ```
 The DROP INDEX statement does not remove indexes created by PRIMARY KEY or UNIQUE constraints. To drop indexes associated with these constraints, you use the ALTER TABLE DROP CONSTRAINT statement.
 
+### Filtered Indexes
+A filtered index is a nonclustered index with a predicate that allows you to specify which rows should be added to the index.
+- Filtered indexes cost less space because they only store a subset of table rows that meet specific criteria (a WHERE clause), rather than indexing the entire table.
 
+You can't create a filtered index on a view.
+```sql
+CREATE INDEX index_name
+ON table_name(column_list)
+WHERE predicate;
+```
+```sql
+CREATE INDEX ix_cust_phone
+ON sales.customers(phone)
+WHERE phone IS NOT NULL;
 
+go
 
-
-
-
+SELECT    
+    first_name,
+    last_name, 
+    phone
+FROM    
+    sales.customers
+WHERE phone = '(281) 363-3309';
+```
+![alt text](media/image-52.png)<br>
+Filtered indexes can help you save space especially when the index key columns are sparse (optimized for storing NULL values). Sparse columns are the ones that have many NULL values.<br>
+Filtered indexes reduce the maintenance cost because only a portion of data rows, not all, needs to be updated when the data in the associated table changes.
 
 
 
