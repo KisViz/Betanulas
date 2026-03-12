@@ -918,8 +918,15 @@ Enable indexes using DBCC DBREINDEX statement
     DBCC DBREINDEX (table_name, " ");  
     ```
 
-
-
+### DROP INDEX
+The DROP INDEX statement removes one or more indexes from the current database.
+```sql
+DROP INDEX [IF EXISTS] 
+    index_name1 ON table_name1,
+    index_name2 ON table_name2,
+    ...;
+```
+The DROP INDEX statement does not remove indexes created by PRIMARY KEY or UNIQUE constraints. To drop indexes associated with these constraints, you use the ALTER TABLE DROP CONSTRAINT statement.
 
 
 
