@@ -606,7 +606,7 @@ where UnitPrice between 20 and 2200
 ![alt text](media/image-55.png)
 - Egyeébként a betweent >= <= -re fordítja (ahogy zölden is látszik)
 
-## vezérlési szerkezetek és így 10k elemet taralmaz az in listában fölsorolva újra próbál (https://stackoverflow.com/questions/6069024/syntax-of-for-loop-in-sql-server)
+## Vezérlési szerkezettel10k elemet taralmaz az in listában fölsorolva újra próbál (https://stackoverflow.com/questions/6069024/syntax-of-for-loop-in-sql-server)
 ```sql
 declare 
     @count int = 9362,
@@ -640,37 +640,76 @@ SELECT SalesOrderDetailID
 ![alt text](media/image-57.png)
 - Simán leutott
 
-## olyan táblában nézni a joinos where amit hozzá joinolok (prsonphone)
+## Olyan táblában nézni a joinos where-t, amit hozzá joinolok
+```sql
+select * from Sales.SalesOrderDetail as SOD
+	join Sales.SalesOrderHeader as SOH
+		on SOD.SalesOrderID = SOD.SalesOrderID and SOH.RevisionNumber = 10 and SOD.CarrierTrackingNumber = '4911-403C-98'
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+select * from Sales.SalesOrderDetail as SOD
+	join Sales.SalesOrderHeader as SOH
+		on SOD.SalesOrderID = SOD.SalesOrderID 
+		where SOH.RevisionNumber = 10 and SOD.CarrierTrackingNumber = '4911-403C-98'
+```
+![alt text](media/image-58.png)
 
 cast intről double-ra, money
-money miért jobb, mint a decimal (float, numeric, real, money előnyök hátrányok) és ezek castolása
+
+
+
+## float, numeric, real, money előnyök hátrányok és ezek castolása
+### float / real — lebegőpontos, nem pontos, nagy tartomány, gyors, de kerekítési hibákat okoz.
+|Data type|	Range|	Storage|
+|-|-|-|
+|float<br>n<=24|	$-3.40*10^{38}$ to $-1.18*10^{-38}$, 0 and $1.18*10^{38}$|	4 bytes
+|float<br> 24<n<=53|	$- 1.79*^{+308}$ to $-2.23*10^{-308}$, 0 and $2.23*10^{-308} to $1.79*10^{+308}$| 8 bytes
+|real| Functionally equivalent to float(24)
+- Approximate Numeric Types: not all values in the data type range can be represented exactly.
+---
+### numeric / decimal — pontos, fix tizedesjegy, pénzügyi és számviteli adatokhoz ideális.
+|Data type|	Range|	Storage|
+|-|-|-|
+|decimal <br>(precision, scale)| $-10*10^{38}+1$ to $10*10^{38}-1$| 5 to 17 bytes
+|numeric <br>(precision, scale)| Functionally equivalent to the decimal data type.
+
+|Precision|	Storage bytes|
+|-|-|
+|1 - 9|	5
+10-19|	9
+20-28|	13
+29-38|	17
+- A decimal és a numeric minél pontosabb, annál több helyet foglal.
+- Fixed-Precision data type: all the values in the data type range can be represented exactly with precision and scale.
+
+### money / smallmoney — pénzre optimalizált, gyors, de kerekítési és formátumkorlátai vannak.
+|Data type | Range | Storage |
+|-|-|-|
+| money | -922,337,203,685,477.5808 to 922,337,203,685,477.5807 | 8 bytes |
+| smallmoney | -214,748.3648 to 214,748.3647 | 4 bytes|
+- Kifejezetten pénzösszegek tárolására
+- Gyors
+- Fix 4 tizedesjegy, nem módosítható
+- Belső ábrázolása miatt előfordulhatnak kerekítési eltérések
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 image binary mit tud miben jobb az image
 xml-ként tárolva elvileg gyorsabb, igaz-e
 ha castnál hiba van, akkor egy értéket használjon helyette, hogy lehetne ezt megcsinálni
