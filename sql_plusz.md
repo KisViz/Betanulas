@@ -453,7 +453,7 @@ Legacy LOB types cannot be sorted directly. They must be cast to varchar(max) or
     exec sp_MSForEachTable 'exec sp_spaceused [?]';
     ```
 
-## INSERT-né az utolsó sornak mi az indexe
+## INSERT-nél az utolsó sornak mi az indexe
 - ```sql
     use AdventureWorks2025
 
@@ -852,6 +852,108 @@ Unique index vs. UNIQUE constraint
 - Both unique index and UNIQUE constraint enforces the uniqueness of values in one or many columns. SQL Server validates duplicates in the same manner for both unique index and unique constraint.
 - When you create a unique constraint, behind the scene, SQL Server creates a unique index associated with this constraint.
 - However, creating a unique constraint on columns makes the objective of the unique index clear.
+
+### Disable Index
+```sql
+ALTER INDEX index_name
+ON table_name
+DISABLE;
+```
+If you disable an index, the query optimizer will not consider that disabled index for creating query execution plans.<br>
+When you disable an index on a **table**, SQL Server **keeps the index definition** in the metadata and the index statistics in nonclustered indexes. However, if you disable a nonclustered or clustered index on a **view**, SQL Server will **physically delete** all the index data.<br>
+If you **disable a clustered index** of a **table**, you **cannot access the table data using data manipulation language** such as SELECT, INSERT, UPDATE, and DELETE until you rebuild or drop the index.
+```sql
+ALTER INDEX ix_cust_city 
+ON sales.customers 
+DISABLE;
+
+
+SELECT    
+    first_name, 
+    last_name, 
+    city
+FROM    
+    sales.customers
+WHERE 
+    city = 'San Jose';
+```
+![alt text](media/image-51.png)
+
+Disabling all indexes of a table
+```sql
+ALTER INDEX ALL ON sales.customers
+DISABLE;
+
+SELECT * FROM sales.customers;
+```
+The query processor is unable to produce a plan because the index 'PK__customer__CD65CB855363011F' on table or view 'customers' is disabled.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
