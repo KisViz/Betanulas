@@ -519,6 +519,53 @@ Legacy LOB types cannot be sorted directly. They must be cast to varchar(max) or
 
 
 
+
+
+
+
+
+
+
+full text search elonyei keresesnel, feature-ok miket tud (elirasok, ékezetes-specialis karakterek)
+full text hol a katlogs, hogy tudom ujra epíteni
+	In Object Explorer, expand the server, expand Databases, and expand the database in which you want to create the full-text catalog.
+	Expand Storage, and then right-click Full Text Catalogs.
+	Select New Full-Text Catalog.
+AND OR AND OR hogyan zárójelezi (hogyna kéne hogy ugyan ezt az ereményt kapjam) és mi van ha van benne not (precedencia sorrend)
+a between karakterekre hogyan működik
+miért van between ha lasabb (vallás?)
+vezérlési szerkezetek és így 10k elemet taralmaz az in listában fölsorolva újra próbál (https://stackoverflow.com/questions/6069024/syntax-of-for-loop-in-sql-server)
+olyan táblában nézni a joinos where amit hozzá joinolok (prsonphone)
+cast intről double-ra, money
+money miért jobb, mint a decimal (float, numeric, real, money előnyök hátrányok) és ezek castolása
+image binary mit tud miben jobb az image
+xml-ként tárolva elvileg gyorsabb, igaz-e
+ha castnál hiba van, akkor egy értéket használjon helyette, hogy lehetne ezt megcsinálni
+Gouping csoportositas (727. sor alisas-ok) átlag ár mondjuk 200 hogy szűrök
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Előre
 ## Views bővebben
 ### Általánosságban
