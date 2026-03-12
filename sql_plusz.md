@@ -854,6 +854,7 @@ Unique index vs. UNIQUE constraint
 - However, creating a unique constraint on columns makes the objective of the unique index clear.
 
 ### Disable Index
+Sometimes, you need to disable an index before doing a large update on a table. By disabling the index, you can speed up the update process by avoiding the index writing overhead.
 ```sql
 ALTER INDEX index_name
 ON table_name
@@ -888,13 +889,34 @@ SELECT * FROM sales.customers;
 ```
 The query processor is unable to produce a plan because the index 'PK__customer__CD65CB855363011F' on table or view 'customers' is disabled.
 
+### Enable Index
+Since the index was disabled, you can rebuild the index but cannot just simply enable it.
 
-
-
-
-
-
-
+Enable index using ALTER INDEX and CREATE INDEX statements
+- rebuild an index on a table
+- ```sql
+    ALTER INDEX index_name 
+    ON table_name  
+    REBUILD;
+    ```
+- enable the disabled index and recreate it
+- ```sql
+    CREATE INDEX index_name 
+    ON table_name(column_list)
+    WITH(DROP_EXISTING=ON)
+    ```
+- enable all disabled indexes on a table
+- ```sql
+    ALTER INDEX ALL ON table_name
+    REBUILD;
+    ```
+Enable indexes using DBCC DBREINDEX statement
+- ```sql
+    DBCC DBREINDEX (table_name, index_name);
+    ```
+- ```sql
+    DBCC DBREINDEX (table_name, " ");  
+    ```
 
 
 
