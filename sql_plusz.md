@@ -691,29 +691,136 @@ cast intről double-ra, money
 - Fix 4 tizedesjegy, nem módosítható
 - Belső ábrázolása miatt előfordulhatnak kerekítési eltérések
 
+## Image, binary mit tud, miben jobb az image
+binary [ ( n ) ]
+- Fixed-length binary data with a length of n bytes, where n is a value from 1 through 8,000. The storage size is n bytes.
+- Ha kevesebb adatot írsz bele, SQL nullákkal tölti fel.
+
+varbinary [ ( n | max ) ]
+- Variable-length binary data. n can be a value from 1 through 8,000. max indicates that the maximum storage size is $2^{31}-1$ bytes. The storage size is the actual length of the data entered + 2 bytes.
+- Változó hosszúságú bináris adat (1–8000 byte vagy MAX esetén 2 GB).
+- Mindenféle fájl, kép, dokumentum tárolására alkalmas.
+
+image
+- Variable-length binary data from 0 through $2^{31}-1$ (2,147,483,647) bytes.
+- Régi, deprecated adattípus (a Microsoft már kivezeti).
+- Változó hosszúságú bináris adat, max. ~2 GB-ig.
+- **VARBINARY(MAX)-ot kell hazsnálni helyette.**
+
+Miben jobb az IMAGE?
+- Semmiben
+- A régi SQL Server verziókban ez volt az egyetlen nagy bináris adattípus, ezért használták. 
+- nem gyorsabb, nem rugalmasabb, nem kompatibilisebb, nem támogat több funkciót és hivatalosan elavult.
+
+## xml-ként tárolva elvileg gyorsabb, igaz-e
+```sql
+use SampleDatabase
+go 
+
+-- táblák létrehozása
+CREATE TABLE RelationalData (
+    Id INT IDENTITY PRIMARY KEY,
+    Code NVARCHAR(50),
+    Value INT
+);
+
+CREATE TABLE XmlData (
+    Id INT IDENTITY PRIMARY KEY,
+    Data XML
+);
 
 
+-- adatokkal feltöltés
+INSERT INTO dbo.RelationalData (Code, Value)
+VALUES
+  ('this is #2', 012),
+  ('this is #3', 123),
+  ('this is #4', 234),
+  ('this is #5', 345),
+  ('this is #6', 456),
+  ('this is #7', 567),
+  ('this is #8', 678),
+  ('this is #9', 789),
+  ('this is #10', 890);
+GO 60000
+
+INSERT INTO dbo.XmlData (Data)
+VALUES
+(
+    '<root>
+        <item code="this is #2" value="012" />
+        <item code="this is #3" value="123" />
+        <item code="this is #4" value="234" />
+        <item code="this is #5" value="345" />
+        <item code="this is #6" value="456" />
+        <item code="this is #7" value="567" />
+        <item code="this is #8" value="678" />
+        <item code="this is #9" value="789" />
+        <item code="this is #10" value="890" />
+    </root>'
+);
+GO 60000
+
+-- indexek létrehozása
+CREATE PRIMARY XML INDEX PXML_XmlData_Data ON XmlData(Data);
+
+CREATE XML INDEX SXML_XmlData_Data_Path ON XmlData(Data)
+    USING XML INDEX PXML_XmlData_Data FOR PATH;
+
+-- lekérdezés teszt
+SELECT *
+FROM RelationalData
+WHERE Code = 'this is #2';
+
+SELECT *
+FROM XmlData
+WHERE Data.exist('/root/item[@code="this is #2"]') = 1;
+
+SELECT
+    xml.Id AS Id,
+    T.Item.value('@code', 'nvarchar(50)') AS Code,
+    T.Item.value('@value', 'int') AS Value
+FROM XmlData AS xml
+CROSS APPLY xml.Data.nodes('/root/item') AS T(Item)
+WHERE T.Item.value('@code', 'nvarchar(50)') = 'this is #2';
 
 
+-- adatok törlése
+TRUNCATE TABLE dbo.RelationalData
 
+TRUNCATE TABLE dbo.XmlData
 
+-- táblák törlése
+DROP TABLE dbo.RelationalData
 
+DROP TABLE dbo.XmlData
+```
+Ha előtte lefuttatom őket, hogy teljen a cache akkor a nem xml-es jobb<br>
+Előre futtatva:
+- ![alt text](media/image-59.png)
 
+Előre futtatás nélkül:
+- ![alt text](media/image-60.png)
 
+## Ha castnál hiba van, akkor egy értéket használjon helyette, hogy lehetne ezt megcsinálni
+```sql
+use SampleDatabase
+go
 
+select sum(
+		try_convert(int, first_name)
+	) 
+from sales.staffs
 
+select sum(
+		isnull(
+			try_convert(int, first_name)
+		, 0)
+		) 
+from sales.staffs
+```
 
-
-
-
-
-
-
-
-image binary mit tud miben jobb az image
-xml-ként tárolva elvileg gyorsabb, igaz-e
-ha castnál hiba van, akkor egy értéket használjon helyette, hogy lehetne ezt megcsinálni
-Gouping csoportositas (727. sor alisas-ok) átlag ár mondjuk 200 hogy szűrök
+## Gouping csoportositas (727. sor alisas-ok) átlag ár mondjuk 200 hogy szűrök
 
 
 
