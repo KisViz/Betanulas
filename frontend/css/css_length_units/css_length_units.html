@@ -1,0 +1,209 @@
+<head>
+    <link rel="stylesheet" href="css_length_units.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<h1>Absulute units</h1>
+<div class="container">
+    <div class="box box-1">50px</div>
+    <div class="box box-2">100px</div>
+    <div class="box box-3">250px</div>
+</div>
+<h2>Types of absolute units</h2>
+<div class="img_container">
+    <div class="indi_images">
+        <label>Lenght units</label>
+        <img src="img/image.png">
+    </div>
+    <div class="indi_images">
+        <label>Angle units</label>
+        <img src="img/image-1.png">
+    </div>
+    <div class="indi_images">
+        <label>Time units</label>
+        <img src="img/image-2.png">
+    </div>
+    <div class="indi_images">
+        <label>Frequency units</label>  
+        <img src="img/image-3.png">
+    </div>
+    <div class="indi_images">
+        <label>Resolution units</label>
+        <img src="img/image-4.png">
+    </div>
+</div>
+
+<hr>
+
+<h1>Relative units</h1>
+<div class="relaitve_container">
+    <div class="box">
+      <h1>50% wide</h1>
+      <p>This container is <span class="element"></span> pixels wide when the browser is <span class="browser"></span> pixels wide. Resize the browser to see it change.</p>
+    </div>
+</div>
+
+<script>
+    $( ".element" ).html( $( ".box" ).width() );
+    $( ".browser" ).html( $( window ).width() );
+
+    $( window ).resize(function() {
+        $( ".element" ).html( $( ".box" ).width() );
+        $( ".browser" ).html( $( window ).width() );
+    });
+</script>
+
+<h2>Types of relative units</h2>
+<div class="img_container">
+    <div class="indi_images">
+        <label>Font relative units</label>
+        <img src="img/image-6.png">
+    </div>
+    <div class="indi_images">
+        <label>Viewport relative units</label>
+        <img src="img/image-7.png">
+    </div>
+    <div class="indi_images">
+        <label>Container relative units</label>  
+        <img src="img/image-8.png">
+    </div>
+    <div class="indi_images">
+        <label>Percentages</label>
+        <img src="img/image-5.png">
+    </div>
+</div>
+
+<hr>
+
+<h1>Unitless numbers</h1>
+<p>
+    For example:
+    <pre>
+aspect-ratio: 2 / 1; /* Ratio */
+column-count: 3; /* Specifies a number of columns */
+flex-grow: 1; /* Allows the element to stretch in a flex layout */
+grid-column-start: 4; /* Places the element on a specific grid line */
+order: 2; /* Sets the order of elemnents in a flex or grid layout */
+scale: 2; /* The elementis scaled up or down by a factor */
+z-index: 100; /* Element is placed in a numbered layer for stacking */
+zoom: 0.2;  /* The element zooms in or out by a factor */
+    </pre>
+</p>
+
+<hr>
+
+<h1>When to use one unit over another</h1>
+<h2>Generally set font sizes in <code>rem</code> and <code>em</code> units</h2>
+<p>This way, you can set things up in a way where changing the <code>font-size</code> value of the <code>&lt;html&gt;</code> or a parent element updates the font sizes of their descendants.</p>
+<pre class="code_snippet">
+html {
+font-size: 18px; /* Inherited by all other elements */
+}
+
+.parent {
+font-size: 1rem; /* Updates when the `html` size changes */
+}
+
+.child {
+font-size: 1em; /* Updates when the parent size changes */
+}
+</pre>
+
+<h2>Declare “zero” without units if you’d like</h2>
+<p>It’s not a big deal or anything, but leaving off the units shortens the code a smidge, and anytime we’re able to write shorter code it’s an opportunity for faster page performance. The impact may be negligible, but we’re able to do it since 0 always computes to 0, no matter what unit we’re working with.</p>
+
+<h2>Use container units for responsive design, where possible</h2>
+<p>Container queries in general are so gosh-darn great for responsive layouts because they look at the size of the container and let us apply styles to its descendants when the container is a certain size.</p>
+<pre class="code_snippet">
+.parent {
+  container: my-container / inline-size; /* Looks at width */
+}
+
+.child {
+  display: flex;
+  flex-direction: column;
+  max-width: 100cqi; /* 100% of the container */
+}
+
+/* When the container is greater than 600px wide */
+@container my-container (width >= 600px) {
+  .child {
+    flex-direction: row;
+    max-width: 50cqi; /* 50% of the container */
+  }
+}
+</pre>
+
+<h2>Use percentages when you’re unsure of the context</h2>
+<p>
+use container units for responsive design, but that only does you good if you know you are in the context of a container. It’s possible, though, that you use the same component in different places, and one of those places might not be a registered container.
+<br>
+In that case, go with a percentage value because percentages are relative to whatever parent element you’re in, regardless of whether or not it’s a container. This way, you can declare an element’s size as 100% to take up the full space of whatever parent element contains it.
+</p>
+
+<h1>Examples</h1>
+<h2>Element (em) and Relative element (rem) units</h2>
+<p>They are calculated based on the relative font size of specific elements.</p>
+<p>Let’s start with <code>em</code> units and say we have an HTML element, a <code>&lt;div&gt;</code> with a <code>.box_ver1</code> class, and we set its <code>font size</code> to 20px. That means any text inside of that element is 20px.</p>
+<div class="example1 box_ver1">
+  <p>Font size: 20px</p>
+</div>
+<p>Great, now what if we decide we need additional text in the box, and give it a relative font size of <code>1.5em</code>?</p>
+<div class="example1 box_ver2">
+  <p>
+    Font size: 20px
+    <span class="em_example">Font-size: 1.5em</span>
+  </p>
+</div>
+<p>
+See how a font size of 1.5em is larger than the 20px text? That’s because the larger text is based on the box’s font size. Behind the scenes, this is what the browser is calculating:
+<br>
+20px * 1.5 = 30px<br>   
+So, the relative font size is multiplied by the pixel font size, which winds up being 30px.
+<br>
+And guess what? <code>rem</code> units do the exact same thing. But instead of multiplying itself by the pixel font size of the parent container, it looks at the pixel font size of the actual <code>&lt;html&gt;</code> element. By default, that is 16px.
+</p>
+<pre class="code_snippet">
+/* This is the browser's default font size */
+html {
+  font-size: 16px;
+}
+
+.box {
+  font-size: 1.5rem; /* 16px * 1.5 = 24px */
+}
+</pre>
+<p>And if we change the HTML element’s font size to something else?</p>
+<pre class="code_snippet">
+html {
+  font-size: 18px;
+}
+
+.box {
+  font-size: 1.5rem; /* 18px * 1.5 = 27px */
+}
+</pre>
+
+<h2>Character unit (ch)</h2>
+<p>What we get is a paragraph that is x characters wide. That means the text will break after the x. character, including spaces.</p>
+<div class="example1 box_ver3">
+  <p class="example2">The big brown dog lazily jumped over the fence. AVeryLongSentence.</p>
+</div>
+<p>But note that the words themselves do not break. If the content is supposed to break after 10 characters, the browser will start the next line after a complete word instead of breaking the word into multiple lines, keeping everything easy to read.</p>
+
+<h2>Line height unit (lh)</h2>
+<p>The line-height unit (lh) looks at the line-height property value of the element’s containing (i.e., parent) element and uses that value to size things up.</p>
+<pre class="code_snippet">
+.parent {
+  line-height: 1.5;
+}
+
+.child {
+  height: 3lh; /* 3 * 1.5 = 4.5 */
+}
+</pre>
+<p>
+    When would you use this? For setting an exact height on something based on the number of lines needed for the text. <br>
+    For exaple: <a href="https://www.smashingmagazine.com/2023/11/css-responsive-multi-line-ribbon-shapes-part1/">Temani Afif’s “CSS Ribbon” effect</a>
+</p>
+
