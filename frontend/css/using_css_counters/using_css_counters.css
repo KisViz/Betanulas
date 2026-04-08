@@ -1,0 +1,85 @@
+body {
+  counter-reset: section; /* Set a counter named 'section', and its initial value is 0. */
+}
+div {
+    counter-reset: section; /* Set a counter named 'section', and its initial value is 0. */
+    margin-left: 20px;
+}
+
+h3::before {
+  counter-increment: section; /* Increment the value of section counter by 1 */
+  content: counter(section) ": "; /* Display counter value in default style (decimal) */
+}
+
+
+
+/* create 'primary' counter on divs' parent */
+section {
+  counter-reset: primary 3;
+}
+
+div::after {
+  content: " ('primary' counters: " counters(primary, "-", style)
+    ", 'secondary' counters: " counters(secondary, "-", style) ")";
+  color: blue;
+}
+
+/* create new 'primary' counter */
+.same-primary-name {
+  counter-reset: primary 6;
+}
+
+/* create 'secondary' counter on div 'F' */
+.new-secondary-name {
+  counter-reset: secondary 5;
+}
+
+/* override the sibling 'secondary' counter */
+.same-secondary-name {
+  counter-reset: secondary 10;
+}
+
+
+
+
+/* create a new counter for the first time */
+.parent {
+  counter-reset: item 0;
+}
+
+/* increment the counter on each list item */
+li {
+  counter-increment: item;
+}
+
+/* show numbers on list items */
+li::before {
+  content: counter(item) " ";
+}
+
+/* change the existing counter value */
+.sub-list-one {
+  counter-set: item 10;
+}
+
+/* change the counter value */
+.sub-list-two {
+  counter-reset: item 0;
+}
+
+
+
+ol {
+  counter-reset: count; /* Creates a new instance of the
+                             section counter with each ol
+                             element */
+  list-style-type: none;
+}
+
+li::before {
+  counter-increment: count; /* Increments only this instance
+                                            of the section counter */
+  content: counters(count, ".") " "; /* Combines the values of all instances
+                                          of the section counter, separated
+                                          by a period */
+}

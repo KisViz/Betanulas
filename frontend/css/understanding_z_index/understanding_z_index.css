@@ -1,0 +1,124 @@
+div {
+  height: 100px;
+  width: 100px;
+  outline: 1px dotted;
+  line-height: 100px;
+  font-size: 40px;
+  text-align: center;
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+#div1 {
+  background-color: lightpink;
+}
+
+#div2 {
+  background-color: lightyellow;
+}
+
+#div3 {
+  background-color: lightgreen;
+}
+
+p {
+  margin-top: 400px;
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  outline: 1px dotted;
+  line-height: 100px;
+  font-size: 40px;
+  text-align: center;
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+#p1 {
+  top: 10px;
+  left: 10px;
+  background-color: lightpink;
+
+}
+
+#p2 {
+  top: 20px;
+  left: 20px;
+  background-color: lightyellow;
+}
+
+#p3 {
+  top: 30px;
+  left: 30px;
+  background-color: lightgreen;
+}
+
+a {
+  margin-top: 800px;
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  outline: 1px dotted;
+  line-height: 100px;
+  font-size: 40px;
+  text-align: center;
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+#a1 {
+  top: 10px;
+  left: 10px;
+  background-color: lightpink;
+  z-index: 5;
+}
+
+#a2 {
+  top: 20px;
+  left: 20px;
+  background-color: lightyellow;
+  z-index: -9;
+}
+
+#a3 {
+  top: 30px;
+  left: 30px;
+  background-color: lightgreen;
+  z-index: 0;
+}
+
+b {
+  margin-top: 1200px;
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  outline: 1px dotted;
+  line-height: 100px;
+  font-size: 40px;
+  text-align: center;
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+#b1 {
+  top: 10px;
+  left: 10px;
+  background-color: lightpink;
+  z-index: 5;
+}
+
+#b2 {
+  top: 20px;
+  left: 20px;
+  background-color: lightyellow;
+  z-index: -9;
+}
+
+#b3 {
+  top: 40px;
+  left: 40px;
+  background-color: lightgreen;
+  z-index: 0;
+}
+
+section {
+    margin-top: -300px;
+  position: absolute;
+  z-index: 2;
+}

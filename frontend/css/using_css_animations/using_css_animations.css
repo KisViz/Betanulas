@@ -1,0 +1,93 @@
+#bounce p {
+  animation-duration: 3s;
+  animation-name: slide-in;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+#bounce p span {
+  display: inline-block;
+  animation-duration: 3s;
+  animation-name: grow-shrink;
+}
+
+@keyframes slide-in {
+  from {
+    translate: 150vw 0;
+    scale: 200% 1;
+  }
+
+  to {
+    translate: 0 0;
+    scale: 100% 1;
+  }
+}
+
+@keyframes grow-shrink {
+  25%,
+  75% {
+    scale: 100%;
+  }
+
+  50% {
+    scale: 200%;
+    color: magenta;
+  }
+
+}
+
+#bounce {
+    width: 200px; 
+    margin-top: 50px;
+}
+
+
+
+
+
+
+#fade {
+  font-size: 1.6rem;
+  padding: 20px;
+  border: 3px solid red;
+  border-radius: 20px;
+  width: 480px;
+  opacity: 0;
+  display: none;
+}
+
+/* Animation classes */
+
+#fade.fade-in {
+  display: block;
+  animation: fade-in 0.7s ease-in forwards;
+}
+
+#fade.fade-out {
+  animation: fade-out 0.7s ease-out forwards;
+}
+
+/* Animation keyframes */
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    display: none;
+  }
+
+  100% {
+    opacity: 1;
+    display: block;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    display: block;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
