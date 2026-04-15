@@ -1,0 +1,301 @@
+h2 {
+    margin: auto auto 0 auto;
+}
+
+div {
+  background-color: #f1f1f1;
+  border: 1px solid black;
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.container {
+  display: grid; /*Use display: grid to make a block-level grid container*/
+
+  /*To create a grid layout with 3 columns of equal width, use the "auto" keyword.*/
+  grid-template-columns: auto auto auto; /*Create a grid with 3 columns of equal width*/
+
+  /* 1fr will take 1 fraction of the available space */
+  /* Here, each column will take up 33.3% of the container width, splitting it equally */
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  /* grid-template-columns: repeat(3, 1fr); */
+
+
+  background-color: dodgerblue;
+  padding: 10px;
+}
+
+.container2 {
+  display: grid; /*Use display: grid to make a block-level grid container*/
+  grid-template-columns: 80px 200px auto; /*Create a grid with a fixed size for column 1 and 2, and column 3 as auto size*/
+  background-color: dodgerblue;
+  padding: 10px;
+}
+
+.container3 {
+  display: grid; /*Use display: grid to make a block-level grid container*/
+  grid-template-columns: 1fr 2fr 1fr;
+  background-color: dodgerblue;
+  padding: 10px;
+}
+
+.container4 {
+  display: grid; /*Use display: grid to make a block-level grid container*/
+  grid-template-columns: minmax(200px, 1fr) 150px 150px; /*Use minmax() to define that first column is at least 80px wide and can grow to 1fr*/
+  background-color: dodgerblue;
+  padding: 10px;
+}
+
+.container5 {
+  display: grid; /*Use display: grid to make a block-level grid container*/
+  grid-template-columns: 1fr 1fr 1fr; /*Use minmax() to define that first column is at least 80px wide and can grow to 1fr*/
+  background-color: dodgerblue;
+  padding: 10px;
+  grid-template-rows: 80px 200px;
+
+}
+
+.container6 {
+  display: grid; /*Use display: grid to make a block-level grid container*/
+  grid-template-columns: 1fr 1fr 1fr; /*Use minmax() to define that first column is at least 80px wide and can grow to 1fr*/
+  background-color: dodgerblue;
+  padding: 10px;
+  gap: 50px;
+  /* gap: 50px 30px; */
+  /* column-gap: 50px; */
+  /* row-gap: 50px; */
+
+}
+
+.container7 {
+  display: grid;
+  grid-template-columns: 70px 70px 70px;
+  background-color: dodgerblue;
+  padding: 5px;
+  gap: 5px;
+  justify-content: space-evenly; /*egyenlően osztja el*/
+}
+
+.container8 {
+  display: grid;
+  grid-template-columns: 70px 70px 70px;
+  background-color: dodgerblue;
+  padding: 5px;
+  gap: 5px;
+  justify-content: space-around; /*mellettük ugyan akkora hely legyen*/
+}
+
+.container9 {
+  display: grid;
+  grid-template-columns: 70px 70px 70px;
+  background-color: dodgerblue;
+  padding: 5px;
+  gap: 5px;
+  justify-content: center;
+}
+
+.container10 {
+  display: grid;
+  grid-template-columns: 70px 70px 70px;
+  background-color: dodgerblue;
+  padding: 5px;
+  gap: 5px;
+  justify-content: start;
+}
+
+.container11 {
+  display: grid;
+  grid-template-columns: 70px 70px 70px;
+  background-color: dodgerblue;
+  padding: 5px;
+  gap: 5px;
+  justify-content: end;
+}
+
+.container12 {
+  display: grid;
+  height: 300px;
+  grid-template-columns: auto auto auto;
+  background-color: dodgerblue;
+  padding: 5px;
+  gap: 5px;
+  align-content: center;
+}
+
+.container13 {
+  display: grid;
+  height: 300px;
+  grid-template-columns: auto auto auto;
+  background-color: dodgerblue;
+  padding: 5px;
+  gap: 5px;
+  align-content: space-evenly;
+}
+
+.container14 {
+  display: grid;
+  height: 300px;
+  grid-template-columns: auto auto auto;
+  background-color: dodgerblue;
+  padding: 5px;
+  gap: 5px;
+  align-content: space-around;
+}
+
+.container15 {
+  display: grid;
+  height: 300px;
+  grid-template-columns: auto auto auto;
+  background-color: dodgerblue;
+  padding: 5px;
+  gap: 5px;
+  align-content: space-between;
+}
+
+.container16 {
+  display: grid;
+  height: 300px;
+  grid-template-columns: auto auto auto;
+  background-color: dodgerblue;
+  padding: 5px;
+  gap: 5px;
+  align-content: start;
+}
+
+.container17 {
+  display: grid;
+  height: 300px;
+  grid-template-columns: auto auto auto;
+  background-color: dodgerblue;
+  padding: 5px;
+  gap: 5px;
+  align-content: end;
+}
+
+.container18 {
+  display: grid;
+  height: 300px;
+  grid-template-columns: 70px 70px 70px;
+  background-color: dodgerblue;
+  padding: 5px;
+  gap: 5px;
+  /* The place-content property is a shorthand property for the align-content and the justify-content properties */
+  place-content: center;
+}
+
+.container19 {
+  display: grid;
+  height: 300px;
+  grid-template-columns: 70px 70px 70px;
+  background-color: dodgerblue;
+  padding: 5px;
+  gap: 5px;
+  place-content: end space-between;
+}
+
+.container20 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 5px;
+  background-color: dodgerblue;
+  padding: 5px;
+}
+
+.item1 {
+    /* Let the first grid item start at column-line 1, and end on column-line 3: */
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.item11 {
+  /* Let the first grid item start at column-line 1, and let it span 2 columns: */
+  grid-column: 1 / span 2;
+}
+
+.item12 {
+    /* Let the first grid item start at row-line 1, and end on row-line 3: */
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.item13 {
+    /* Let the first grid item start at row-line 1, and let it span 2 rows: */
+    grid-row: 1 / span 2;
+}
+
+.item14 {
+    /* Let the first grid item start at column-line 1, and let it span 2 columns, also let the first grid item start at row-line 1, and let it span 2 rows: */
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+}
+
+.container21 {
+  display: grid;
+  grid-template-areas: 'myHeader myHeader myHeader myHeader myHeader';
+  background-color: dodgerblue;
+  padding: 5px;
+  gap: 5px;
+}
+
+.item2 {
+  grid-area: myHeader;
+}
+
+.container22 {
+  display: grid;
+  grid-template-areas: 'myHeader myHeader myHeader . .';
+  background-color: dodgerblue;
+  padding: 5px;
+  gap: 5px;
+}
+
+.container23 {
+  display: grid;
+  grid-template-areas:
+    'myHeader myHeader . . .'
+    'myHeader myHeader . . .';
+  background-color: dodgerblue;
+  padding: 5px;
+  gap: 5px;
+}
+
+.container24 {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main main right'
+    'menu footer footer footer footer footer';
+  background-color: dodgerblue;
+  padding: 5px;
+  gap: 5px; 
+}
+
+.item21 {grid-area: header;}
+.item22 {grid-area: menu;}
+.item23 {grid-area: main;}
+.item24 {grid-area: right;}
+.item25 {grid-area: footer;}
+
+.container25 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: dodgerblue;
+  padding: 5px;
+  gap: 5px;
+}
+
+.item31 {justify-self: right;}
+.item36 {justify-self: center;}
+
+.container26 {
+  display: grid;
+  height: 300px;
+  grid-template-columns: auto auto auto;
+  background-color: dodgerblue;
+  padding: 5px;
+  gap: 5px;
+}
+
+.item311 {align-self: start;}
+.item366 {align-self: center;}

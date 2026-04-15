@@ -32,7 +32,6 @@
     scale: 200%;
     color: magenta;
   }
-
 }
 
 #bounce {
@@ -42,52 +41,70 @@
 
 
 
-
-
-
 #fade {
   font-size: 1.6rem;
   padding: 20px;
   border: 3px solid red;
   border-radius: 20px;
   width: 480px;
-  opacity: 0;
   display: none;
 }
 
-/* Animation classes */
 
-#fade.fade-in {
-  display: block;
-  animation: fade-in 0.7s ease-in forwards;
+#only_bounce {
+  margin-left: 50%;
+  animation-duration: 8s;
+  animation-name: grow-shrink2;
+  animation-iteration-count: infinite;
 }
 
-#fade.fade-out {
-  animation: fade-out 0.7s ease-out forwards;
-}
-
-/* Animation keyframes */
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-    display: none;
+@keyframes grow-shrink2 {
+  25%,
+  50% {
+  scale: 200%;
+  background-color: magenta;
   }
+  75% {
+    scale: 100%;
+  }
+}
 
+#only_bounce2 {
+  margin-top: 5%;
+  margin-left: 50%;
+  animation-duration: 8s;
+  animation-name: grow-shrink3;
+  animation-iteration-count: infinite;
+}
+
+@keyframes grow-shrink3 {
+  50% {
+  scale: 200%;
+  background-color: magenta;
+  }
+  75% {
+    scale: 100%;
+  }
+}
+
+#only_bounce3 {
+  margin-top: 5%;
+  margin-left: 50%;
+  animation-duration: 3s;
+  animation-name: grow-shrink4;
+  animation-fill-mode: forwards; /*ettől marad meg az utolsó állapot*/
+}
+
+@keyframes grow-shrink4 {
+  25%,
+  50% {
+  scale: 200%;
+  background-color: magenta;
+  }
+  75% {
+    scale: 100%;
+  }
   100% {
-    opacity: 1;
-    display: block;
-  }
-}
-
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-    display: block;
-  }
-
-  100% {
-    opacity: 0;
-    display: none;
+    background-color: magenta;
   }
 }

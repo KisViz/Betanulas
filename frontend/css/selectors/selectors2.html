@@ -1,0 +1,62 @@
+<head>
+    <link rel="stylesheet" href="selectors.css">
+</head>
+
+<div>
+    <h2 class="myClass" id="myId">
+    No selectors match. <span class="myClass">This span has an outline</span> as
+    it is both myClass and a child of #myId.
+    </h2>
+    <p>The first paragraph is underlined (egyből myClass-t követ). All the paragraphs are 1.1rem.</p>
+    <p>
+    The second paragraph is red (mert h2-őt követ egyből egy p és azt egyből p követi). This and the following paragraphs are italic (mert h2-őt egyből egy p követ és utána bármikor p van).
+    </p>
+    <p>The third paragraph is NOT red. It is italic and 1.1rem.</p>
+    <p class="myClass">
+    Does not have an outline; this is a sibling of H2, not a child. It is italic
+    and 1.1rem.
+    </p>
+</div>
+
+<hr>
+
+<div>
+    <h2 class="myClass" id="myId">
+    No selectors match. <span class="myClass">This span has an outline</span> as
+    it is both myClass and a child of #myId.
+    </h2>
+    <p>The first paragraph is underlined (p egyből myClass-t követ). All the paragraphs are 1.1rem.</p>
+
+    <div>ez egy div</div>
+
+    <p>
+    This and the following paragraphs are italic (mert h2-őt egyből egy p követ és utána bármikor p van).
+    </p>
+    <p>The third paragraph is NOT red. It is italic and 1.1rem.</p>
+    <p class="myClass">
+    Does not have an outline; this is a sibling of H2, not a child. It is italic
+    and 1.1rem.
+    </p>
+</div>
+
+
+<hr>
+
+<div>
+    <h2 class="myClass" id="myId">
+    No selectors match. <span class="myClass">This span has an outline</span> as
+    it is both myClass and a child of #myId.
+    </h2>
+
+    <div>ez egy div</div>
+
+    <p>All the paragraphs are 1.1rem.</p>
+    <p>
+    This and the following paragraphs are not italic (mert h2-őt egyből egy p követ és utána bármikor p van NEM érvényesül, mert van köztük egy div).
+    </p>
+    <p>The third paragraph is NOT red. It is italic and 1.1rem.</p>
+    <p class="myClass">
+    Does not have an outline; this is a sibling of H2, not a child. It is italic
+    and 1.1rem.
+    </p>
+</div>

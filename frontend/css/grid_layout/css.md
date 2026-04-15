@@ -179,4 +179,6 @@ https://css-tricks.com/complete-guide-css-grid-layout/
 - CSS Grid is used for two-dimensional layout, with rows AND columns.
 - CSS Flexbox is used for one-dimensional layout, with rows OR columns.,
 
+![alt text](grid_gaps.png)
 
+[Példák és leírás](../grid_layout/grid_layout.html)

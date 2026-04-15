@@ -1,0 +1,15 @@
+h2 + p ~ p { /*ha h2 után egyből p van és utána bármikor p van*/
+  font-style: italic;
+}
+h2 + p + p { /*h2 után egyből p után egyből p van*/
+  color: red;
+}
+.myClass + p { /*p ha egyből egy myClass-t követ*/
+  text-decoration: underline;
+}
+#myId > .myClass { /*azok a myClassok, amik a myId-nak gyerekei*/
+  outline: 3px dashed red;
+}
+* > p { /*az összes p (,ami bárminek gyereke)*/
+  font-size: 1.1rem;
+}
