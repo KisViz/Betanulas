@@ -1,0 +1,67 @@
+article {
+  column-count: 5;
+  column-width: 8em;
+  widows: 3;
+  orphans: 3;
+  gap: 1em;
+  column-rule: 2px dashed #666666;
+  height: 50em;
+}
+.title {
+  column-span: all;
+  display: flex;
+  align-items: baseline;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+p {
+  margin: 0 0 1em 0;
+  line-height: 1.4;
+}
+#options {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: white;
+  display: none;
+}
+fieldset p {
+  margin-bottom: 0.25em;
+}
+legend {
+  position: relative;
+  top: 0;
+  transition: 200ms;
+}
+legend.closed {
+  top: 0.75em;
+}
+legend.closed + #controls {
+  display: none;
+}
+legend {
+  background-color: #dedede;
+  padding: 0.5em;
+}
+legend > button {
+  all: unset;
+  cursor: pointer;
+}
+legend.closed {
+  margin: -1em;
+  display: inline-block;
+}
+blockquote {
+  border: 2px dashed red;
+  margin: 0 0 0.25em 0;
+}
+blockquote p {
+  margin-bottom: 0;
+}
+blockquote p::before,
+blockquote p::after {
+  content: '"';
+  font-size: 1.2em;
+  vertical-align: baseline;
+  color: red;
+}

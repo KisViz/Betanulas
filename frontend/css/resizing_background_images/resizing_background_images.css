@@ -1,0 +1,35 @@
+.tiledBackground {
+  background-image: url("https://www.mozilla.org/media/img/logos/firefox/logo-quantum.9c5e96634f92.png");
+  background-size: 300px 150px;
+  width: 300px;
+  height: 300px;
+  border: 2px solid;
+  color: pink;
+}
+.square2 {
+  background-image: url("favicon.png");
+  background-size: 300px;
+  width: 300px;
+  height: 300px;
+  border: 2px solid;
+  text-shadow: white 0px 0px 2px;
+  font-size: 16px;
+}
+.bgSizeContain {
+  background-image: url("https://www.mozilla.org/media/img/logos/firefox/logo-quantum.9c5e96634f92.png");
+  background-size: contain;
+  width: 160px;
+  height: 160px;
+  border: 2px solid;
+  resize: both;
+  overflow: scroll;
+}
+.bgSizeCover {
+  background-image: url("https://www.mozilla.org/media/img/logos/firefox/logo-quantum.9c5e96634f92.png");
+  background-size: cover;
+  width: 160px;
+  height: 160px;
+  border: 2px solid;
+  resize: both;
+  overflow: scroll;
+}

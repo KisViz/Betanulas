@@ -1,0 +1,99 @@
+<!-- CSS counters let you adjust the appearance of content based on its 
+location in a document. For example, you can use counters to automatically 
+number the headings on a webpage or to change the numbering on ordered lists. -->
+<!-- Counters are, in essence, variables maintained by CSS whose values may 
+be incremented or decremented by CSS rules that track how many times they're 
+used. The following things affect the counter values on an element -->
+
+<head><link rel="stylesheet" href="using_css_counters.css"></head>
+
+<body>
+    <h3>One</h3>
+
+    <div>
+        <h3>Nested one</h3>
+        <h3>Nested two</h3>
+    </div>
+
+    <h3>Two</h3>
+
+    <div>
+        <h3>Nested one</h3>
+        <h3>Nested two</h3>
+        <h3>Nested three</h3>
+    </div>
+
+    <h3>Three</h3>
+</body>
+
+
+<section>
+  counter-reset: primary 3
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div class="same-primary-name">D</div>
+  <span> counter-reset: primary 6</span>
+  <div>E</div>
+  <div class="new-secondary-name">F</div>
+  <span> counter-reset: secondary 5</span>
+  <div>G</div>
+  <div>H</div>
+  <div class="same-secondary-name">I&nbsp;</div>
+  <span> counter-reset: secondary 10</span>
+  <div>J&nbsp;</div>
+  <div>K</div>
+  <section></section>
+</section>
+
+
+<ul class="parent">
+  <li>A</li>
+  <li>B</li>
+  <li>
+    C (the counter updated using `counter-set`)
+    <ul class="sub-list-one">
+      <li>sub-A</li>
+      <li>sub-B</li>
+    </ul>
+  </li>
+  <li>D</li>
+  <li>
+    E (a new counter created using `counter-reset`)
+    <ul class="sub-list-two">
+      <li>sub-A</li>
+      <li>sub-B</li>
+      <li>sub-C</li>
+    </ul>
+  </li>
+  <li>F</li>
+  <li>G</li>
+</ul>
+
+<ol>
+  <li>item</li>          <!-- 1     -->
+  <li>item               <!-- 2     -->
+    <ol>
+      <li>item</li>      <!-- 2.1   -->
+      <li>item</li>      <!-- 2.2   -->
+      <li>item           <!-- 2.3   -->
+        <ol>
+          <li>item</li>  <!-- 2.3.1 -->
+          <li>item</li>  <!-- 2.3.2 -->
+        </ol>
+        <ol>
+          <li>item</li>  <!-- 2.3.1 -->
+          <li>item</li>  <!-- 2.3.2 -->
+          <li>item</li>  <!-- 2.3.3 -->
+        </ol>
+      </li>
+      <li>item</li>      <!-- 2.4   -->
+    </ol>
+  </li>
+  <li>item</li>          <!-- 3     -->
+  <li>item</li>          <!-- 4     -->
+</ol>
+<ol>
+  <li>item</li>          <!-- 1     -->
+  <li>item</li>          <!-- 2     -->
+</ol>

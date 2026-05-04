@@ -1,0 +1,27 @@
+<style>
+#first {
+  color: blue;
+  font-size: 20px;
+}
+
+#second {
+  border: 1px solid red;
+}
+
+#third1 {
+  border: 1px solid red;
+}
+
+#third2 {
+  border: inherit;
+}
+</style>
+
+<body>
+<p>In the following example, the text inside the &lt;strong&gt; element will appear in 20px and in blue, since the &lt;strong&gt; element inherits the color and the font-size value from the parent (&lt;p&gt;) element.&lt;/p&gt;
+<p id="first">This is a paragraph with some <strong>important</strong> text.</p>
+<p>n the following example, the &lt;strong> element, inside the &lt;p> element, will not have an additional border (since the initial value of border-style is none).&lt;/p>
+<p id="second">This is a paragraph with some <strong>important</strong> text.</p>
+<p>In the following example, the &lt;strong> element, inside the &lt;p> element, will have an additional border, since we have used the inherit keyword to explicitly specify that the border value should be inherit.</p>
+<p id="third1">This is a paragraph with some <strong id="third2">strong</strong> text.</p>
+</body>

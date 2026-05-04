@@ -1,0 +1,31 @@
+h2 { /*h2*/
+  & + p { /*egyből p*/
+    & ~ p { /*után bármikor p*/
+      font-style: italic;
+    }
+
+    /*vagy*/
+
+    & + p { /*után közvetlen p*/
+      color: red;
+    }
+  }
+}
+
+.myClass { /*myClass*/
+  & + p { /*után egyből p*/
+    text-decoration: underline;
+  }
+}
+
+#myId { /*myId*/
+  & > .myClass { /*gyereke myClass*/
+    outline: 3px dashed red;
+  }
+}
+
+* { /*bármi*/
+  & > p { /*gyereke p*/
+    font-size: 1.1rem;
+  }
+}

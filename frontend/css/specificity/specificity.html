@@ -1,0 +1,18 @@
+<html>
+<head>
+  <style>
+    #demo {color: blue;}
+    .test {color: green;}
+    p {color: red;}
+  </style>
+</head>
+<body>
+<p style="color: black;">Here, we have specified a red color for &lt;p> elements. Result: The text will be red:</p>
+<p>Hello World!</p>
+<p style="color: black;">Here, we have added a class selector (named "test"), and specified a green color for this class. Result: The text will be green, because the class selector has higher specificity:</p>
+<p class="test">Hello World!</p>
+<p style="color: black;">Here, we have added the id selector (named "demo"). Result: The text will be blue, because the id selector has higher specificity:</p>
+<p id="demo" class="test">Hello World!</p>
+
+</body>
+</html>

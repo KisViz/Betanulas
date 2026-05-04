@@ -1,0 +1,118 @@
+#delay {
+  font-size: 14px;
+  transition-property: font-size;
+  transition-duration: 4s;
+  transition-delay: 2s;
+}
+
+#delay:hover {
+  font-size: 36px;
+}
+
+.box {
+  border-style: solid;
+  border-width: 1px;
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  transition:
+    width 2s,
+    height 2s,
+    background-color 2s,
+    rotate 2s;
+}
+
+.box:hover {
+  background-color: #ffcccc;
+  width: 200px;
+  height: 200px;
+  rotate: 180deg;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 250px;
+    border: 1px dotted black;
+    margin-top: 10px;
+}
+
+#boxes {
+    display: flex;
+}
+
+
+
+nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+a {
+  flex: 1;
+  background-color: #333333;
+  color: white;
+  border: 1px solid;
+  padding: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.5s ease-out;
+}
+
+a:hover,
+a:focus {
+  background-color: white;
+  color: #333333;
+}
+
+
+
+#hide {
+  font-size: 1.6rem;
+  padding: 20px;
+  border: 3px solid red;
+  border-radius: 20px;
+  width: 480px;
+
+  display: none;
+  opacity: 0;
+  transition:
+    opacity 1s,
+    display 1s allow-discrete;
+  /* Equivalent to
+  transition: all 1s allow-discrete; */
+}
+
+#hide.showing {
+  opacity: 1;
+  display: block;
+}
+
+@starting-style {
+  .showing {
+    opacity: 0;
+  }
+}
+
+
+
+.ball {
+  border-radius: 25px;
+  width: 50px;
+  height: 50px;
+  background: #cc0000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 1s;
+}
+
+#playground {
+    margin-top: 10;
+    width: 70%;
+    height: 300px;
+    border: 1px dotted black;
+    position: relative; /* fontos! */
+}

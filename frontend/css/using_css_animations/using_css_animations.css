@@ -1,0 +1,110 @@
+#bounce p {
+  animation-duration: 3s;
+  animation-name: slide-in;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+#bounce p span {
+  display: inline-block;
+  animation-duration: 3s;
+  animation-name: grow-shrink;
+}
+
+@keyframes slide-in {
+  from {
+    translate: 150vw 0;
+    scale: 200% 1;
+  }
+
+  to {
+    translate: 0 0;
+    scale: 100% 1;
+  }
+}
+
+@keyframes grow-shrink {
+  25%,
+  75% {
+    scale: 100%;
+  }
+
+  50% {
+    scale: 200%;
+    color: magenta;
+  }
+}
+
+#bounce {
+    width: 200px; 
+    margin-top: 50px;
+}
+
+
+
+#fade {
+  font-size: 1.6rem;
+  padding: 20px;
+  border: 3px solid red;
+  border-radius: 20px;
+  width: 480px;
+  display: none;
+}
+
+
+#only_bounce {
+  margin-left: 50%;
+  animation-duration: 8s;
+  animation-name: grow-shrink2;
+  animation-iteration-count: infinite;
+}
+
+@keyframes grow-shrink2 {
+  25%,
+  50% {
+  scale: 200%;
+  background-color: magenta;
+  }
+  75% {
+    scale: 100%;
+  }
+}
+
+#only_bounce2 {
+  margin-top: 5%;
+  margin-left: 50%;
+  animation-duration: 8s;
+  animation-name: grow-shrink3;
+  animation-iteration-count: infinite;
+}
+
+@keyframes grow-shrink3 {
+  50% {
+  scale: 200%;
+  background-color: magenta;
+  }
+  75% {
+    scale: 100%;
+  }
+}
+
+#only_bounce3 {
+  margin-top: 5%;
+  margin-left: 50%;
+  animation-duration: 3s;
+  animation-name: grow-shrink4;
+  animation-fill-mode: forwards; /*ettől marad meg az utolsó állapot*/
+}
+
+@keyframes grow-shrink4 {
+  25%,
+  50% {
+  scale: 200%;
+  background-color: magenta;
+  }
+  75% {
+    scale: 100%;
+  }
+  100% {
+    background-color: magenta;
+  }
+}

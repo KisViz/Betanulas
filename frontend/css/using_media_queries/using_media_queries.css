@@ -1,0 +1,44 @@
+.container > * { /*a .container összes közvetlen gyereke*/
+  border: 4px solid black;
+  margin: 0.2rem;
+  padding: 1rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-areas:
+    "header  header"
+    "sidebar sidebar"
+    "main main";
+}
+
+@media screen and (min-width: 600px) {
+  .container {
+    grid-template-areas:
+      "header  header"
+      "sidebar main";
+  }
+}
+
+/* csak akkor lép életbe, ha a képernyő legalább 600px széles
+a .container elem grid layoutot használ
+és a grid területeit így osztja fel:
+| header | header |
+| sidebar | main | */
+
+header {
+  grid-area: header;
+}
+
+aside {
+  grid-area: sidebar;
+}
+
+main {
+  grid-area: main;
+}
+
+/* a <header> elem a header nevű grid‑területre kerül
+az <aside> elem a sidebar területre
+a <main> elem a main területre */

@@ -1,0 +1,296 @@
+.container {
+    width: 200px;
+    height: 200px;
+    margin: 5px 5px 5px 5px;
+    border: 1px dotted black;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+}
+
+.text {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.simple-linear {
+  background: linear-gradient(blue, pink);
+}
+
+.horizontal-gradient {
+  background: linear-gradient(to right, blue, pink);
+}
+
+.diagonal-gradient {
+  background: linear-gradient(to bottom right, blue, pink);
+}
+
+.angled-gradient {
+  background: linear-gradient(70deg, blue, pink);
+}
+
+.auto-spaced-linear-gradient {
+  background: linear-gradient(red, yellow, blue, orange);
+}
+
+.multicolor-linear {
+  background: linear-gradient(to left, lime 28px, red 77%, cyan);
+}
+
+.striped {
+  background: linear-gradient(to bottom left, cyan 50%, palegoldenrod 50%);
+}
+
+.color-hint {
+  background: linear-gradient(blue, 10%, pink);
+}
+
+.stacked-linear {
+  background:
+    linear-gradient(217deg, rgb(255 0 0 / 80%), transparent 70.71%),
+    linear-gradient(127deg, rgb(0 255 0 / 80%), transparent 70.71%),
+    linear-gradient(336deg, rgb(0 0 255 / 80%), transparent 70.71%);
+}
+
+.simple-radial {
+  background: radial-gradient(red, blue);
+}
+
+.radial-gradient {
+  background: radial-gradient(red 10px, yellow 30%, dodgerblue 50%);
+}
+
+.radial-gradient2 {
+  background: radial-gradient(at 0% 30%, red 10px, yellow 30%, dodgerblue 50%);
+}
+
+.radial-ellipse-side {
+  background: radial-gradient(
+    ellipse closest-side,
+    red,
+    yellow 10%,
+    dodgerblue 50%,
+    beige
+  );
+}
+
+.radial-circle-close {
+  background: radial-gradient(
+    circle closest-side at 25% 75%,
+    red,
+    yellow 10%,
+    dodgerblue 50%,
+    beige
+  );
+}
+
+.stacked-radial {
+  background:
+    radial-gradient(circle at 50% 0, rgb(255 0 0 / 50%), transparent 70.71%),
+    radial-gradient(circle at 6.7% 75%, rgb(0 0 255 / 50%), transparent 70.71%),
+    radial-gradient(circle at 93.3% 75%, rgb(0 255 0 / 50%), transparent 70.71%)
+      beige;
+  border-radius: 50%;
+}
+
+.simple-conic {
+  background: conic-gradient(red, blue);
+}
+
+.conic-gradient {
+  background: conic-gradient(at 0% 30%, red 10%, yellow 30%, dodgerblue 50%);
+}
+
+.repeating-linear {
+  background: repeating-linear-gradient(
+    -45deg,
+    red,
+    red 5px,
+    blue 5px,
+    blue 10px
+  );
+}
+
+.multi-repeating-linear {
+  background:
+    repeating-linear-gradient(
+      190deg,
+      rgb(255 0 0 / 50%) 40px,
+      rgb(255 153 0 / 50%) 80px,
+      rgb(255 255 0 / 50%) 120px,
+      rgb(0 255 0 / 50%) 160px,
+      rgb(0 0 255 / 50%) 200px,
+      rgb(75 0 130 / 50%) 240px,
+      rgb(238 130 238 / 50%) 280px,
+      rgb(255 0 0 / 50%) 300px
+    ),
+    repeating-linear-gradient(
+      -190deg,
+      rgb(255 0 0 / 50%) 30px,
+      rgb(255 153 0 / 50%) 60px,
+      rgb(255 255 0 / 50%) 90px,
+      rgb(0 255 0 / 50%) 120px,
+      rgb(0 0 255 / 50%) 150px,
+      rgb(75 0 130 / 50%) 180px,
+      rgb(238 130 238 / 50%) 210px,
+      rgb(255 0 0 / 50%) 230px
+    ),
+    repeating-linear-gradient(
+      23deg,
+      red 50px,
+      orange 100px,
+      yellow 150px,
+      green 200px,
+      blue 250px,
+      indigo 300px,
+      violet 350px,
+      red 370px
+    );
+}
+
+.plaid-gradient {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 50px,
+      rgb(255 127 0 / 25%) 50px,
+      rgb(255 127 0 / 25%) 56px,
+      transparent 56px,
+      transparent 63px,
+      rgb(255 127 0 / 25%) 63px,
+      rgb(255 127 0 / 25%) 69px,
+      transparent 69px,
+      transparent 116px,
+      rgb(255 206 0 / 25%) 116px,
+      rgb(255 206 0 / 25%) 166px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 50px,
+      rgb(255 127 0 / 25%) 50px,
+      rgb(255 127 0 / 25%) 56px,
+      transparent 56px,
+      transparent 63px,
+      rgb(255 127 0 / 25%) 63px,
+      rgb(255 127 0 / 25%) 69px,
+      transparent 69px,
+      transparent 116px,
+      rgb(255 206 0 / 25%) 116px,
+      rgb(255 206 0 / 25%) 166px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 5px,
+      rgb(143 77 63 / 25%) 5px,
+      rgb(143 77 63 / 25%) 10px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 5px,
+      rgb(143 77 63 / 25%) 5px,
+      rgb(143 77 63 / 25%) 10px
+    );
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 50px,
+      rgb(255 127 0 / 25%) 50px 56px,
+      transparent 56px 63px,
+      rgb(255 127 0 / 25%) 63px 69px,
+      transparent 69px 116px,
+      rgb(255 206 0 / 25%) 116px 166px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 50px,
+      rgb(255 127 0 / 25%) 50px 56px,
+      transparent 56px 63px,
+      rgb(255 127 0 / 25%) 63px 69px,
+      transparent 69px 116px,
+      rgb(255 206 0 / 25%) 116px 166px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0 5px,
+      rgb(143 77 63 / 25%) 5px 10px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      transparent 0 5px,
+      rgb(143 77 63 / 25%) 5px 10px
+    );
+}
+
+.repeating-radial {
+  background: repeating-radial-gradient(
+    black,
+    black 5px,
+    white 5px,
+    white 10px
+  );
+}
+
+.multi-target {
+  background:
+    repeating-radial-gradient(
+        ellipse at 80% 50%,
+        rgb(0 0 0 / 50%),
+        rgb(0 0 0 / 50%) 15px,
+        rgb(255 255 255 / 50%) 15px,
+        rgb(255 255 255 / 50%) 30px
+      )
+      top left no-repeat,
+    repeating-radial-gradient(
+        ellipse at 20% 50%,
+        rgb(0 0 0 / 50%),
+        rgb(0 0 0 / 50%) 10px,
+        rgb(255 255 255 / 50%) 10px,
+        rgb(255 255 255 / 50%) 20px
+      )
+      top left no-repeat yellow;
+  background-size:
+    200px 200px,
+    150px 150px;
+}
+
+.repeating-conic {
+  background: repeating-conic-gradient(
+    #66ccff 0% 8.25%,
+    #6633ff 8.25% 16.5%,
+    #ff3399 16.5% 25%
+  );
+}
+
+.multi-repeating-conic {
+  background:
+    repeating-conic-gradient(
+      from 0deg at 80% 50%,
+      #5691f580 0% 8.25%,
+      #b338ff80 8.25% 16.5%,
+      #f8305880 16.5% 25%
+    ),
+    repeating-conic-gradient(
+      from 15deg at 50% 50%,
+      #e856f580 0% 8.25%,
+      #ff384c80 8.25% 16.5%,
+      #e7f83080 16.5% 25%
+    ),
+    repeating-conic-gradient(
+      from 0deg at 20% 50%,
+      #f58356ff 0% 8.25%,
+      #caff38ff 8.25% 16.5%,
+      #30f88aff 16.5% 25%
+    );
+}
