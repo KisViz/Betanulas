@@ -36,3 +36,39 @@ https://www.geeksforgeeks.org/css/tailwind-css/
 https://tailwindcss.com/plus/ui-blocks
 - Példa weboldalak
 - Drága
+
+## Tailwind átállítása másik filera
+az EZT_IRD_AT-okat kell az uj filaokra cserélni
+
+tailwind.config.js:
+```js
+module.exports = {
+  content: ["./src/EZT_IRD_AT.html"],
+  theme: {
+    extend: {}
+  },
+  plugins: []
+}
+```
+package.json
+```json
+{
+  "name": "tailwind",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./src/EZT_IRD_AT.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.2.2",
+    "tailwindcss": "^4.2.2"
+  }
+}
+```
+
+npm run dev
